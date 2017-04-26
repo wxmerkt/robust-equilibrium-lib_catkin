@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 2.8.12)
-project(robust-equilibrium-lib_catkin CXX)
+project(robust_equilibrium_lib_catkin CXX)
 
 include(ExternalProject)
 
-find_package(catkin REQUIRED COMPONENTS qpOASES_catkin)
+find_package(catkin REQUIRED COMPONENTS qpoases_catkin)
 
 ExternalProject_Add(
   robust-equilibrium-lib_lib
   GIT_REPOSITORY https://github.com/wxmerkt/robust-equilibrium-lib.git #https://github.com/andreadelprete/robust-equilibrium-lib.git
-  GIT_TAG master
+  GIT_TAG 9e5251ec2cdfd4cda07c995cadcba365f75069eb #master
   CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CATKIN_DEVEL_PREFIX} -DBUILD_TESTS:BOOL=OFF
   BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/robust-equilibrium-lib-build
   SOURCE_DIR ${CMAKE_CURRENT_BINARY_DIR}/robust-equilibrium-lib-src
@@ -28,7 +28,7 @@ add_custom_command(
 )
 file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 add_custom_command(
-  TARGET robust-equilibrium-lib_lib POST_BUILD
+  TARGET robust-equilibrium-lib_lib PRE_LINK
   COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_BINARY_DIR}/robust-equilibrium-lib-src/include ${CATKIN_DEVEL_PREFIX}/include
 )
 

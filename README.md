@@ -1,19 +1,19 @@
-robust-equilibrium-lib_catkin
+robust_equilibrium_lib_catkin
 =============================
 
 Catkin wrapper for the [RobustEquilibriumLib](https://github.com/andreadelprete/robust-equilibrium-lib).
 
-It allows you to use catkin macros to find robust-equilibrium-lib. It uses the [qpOASES_catkin wrapper](https://github.com/wxmerkt/qpOASES_catkin) to provide the correct version of qpOASES without having to manually install it. To use robust-equilibrium-lib in your catkin package:
+It allows you to use catkin macros to find robust-equilibrium-lib. It uses the [qpoases_catkin wrapper](https://github.com/wxmerkt/qpoases_catkin) to provide the correct version of qpOASES without having to manually install it. To use robust-equilibrium-lib in your catkin package:
 
 `package.xml`: 
 ```xml
-<build_depend>robust-equilibrium-lib_catkin</build_depend>
-<run_depend>robust-equilibrium-lib_catkin</run_depend>
+<build_depend>robust_equilibrium_lib_catkin</build_depend>
+<run_depend>robust_equilibrium_lib_catkin</run_depend>
 ```
 
 `CMakeLists.txt`:
 ```cmake
-find_package(catkin REQUIRED COMPONENTS robust-equilibrium-lib_catkin)
+find_package(catkin REQUIRED COMPONENTS robust_equilibrium_lib_catkin)
 include_directories(${catkin_INCLUDE_DIRS})
 target_link_libraries(test ${catkin_LIBRARIES})
 ```

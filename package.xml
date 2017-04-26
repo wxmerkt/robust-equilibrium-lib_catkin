@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <package>
-  <name>robust-equilibrium-lib_catkin</name>
+  <name>robust_equilibrium_lib_catkin</name>
   <version>0.1.0</version>
   <description>catkin wrapper for the robust-equilibrium-lib</description>
   <maintainer email="w.merkt+oss@gmail.com">Wolfgang Merkt</maintainer>
   <license>BSD</license>
-  <url type="website">https://github.com/wxmerkt/robust-equilibrium-lib_catkin</url>
-  <url type="bugtracker">https://github.com/wxmerkt/robust-equilibrium-lib_catkin/issues</url>
+  <url type="website">https://github.com/wxmerkt/robust_equilibrium_lib_catkin</url>
+  <url type="bugtracker">https://github.com/wxmerkt/robust_equilibrium_lib_catkin/issues</url>
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>libccd-dev</build_depend>
   <run_depend>libccd-dev</run_depend>
-  <build_depend>qpOASES_catkin</build_depend>
-  <run_depend>qpOASES_catkin</run_depend>
+  <build_depend>qpoases_catkin</build_depend>
+  <run_depend>qpoases_catkin</run_depend>
   <export/>
 </package>
