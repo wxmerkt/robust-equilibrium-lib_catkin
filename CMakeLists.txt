@@ -13,23 +13,17 @@ ExternalProject_Add(
   BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/robust-equilibrium-lib-build
   SOURCE_DIR ${CMAKE_CURRENT_BINARY_DIR}/robust-equilibrium-lib-src
   BUILD_COMMAND make
+  INSTALL_COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/robust-equilibrium-lib-build/${CMAKE_SHARED_LIBRARY_PREFIX}robust-equilibrium-lib${CMAKE_SHARED_LIBRARY_SUFFIX} ${CATKIN_DEVEL_PREFIX}/lib
+)
+## robust-equilibrium-lib does not correctly install include & lib, so we have to do this manually
+ExternalProject_Add_Step(robust-equilibrium-lib_lib copy_includes
+  COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_BINARY_DIR}/robust-equilibrium-lib-src/include ${CATKIN_DEVEL_PREFIX}/include
 )
 
 file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 catkin_package(
   INCLUDE_DIRS ${CATKIN_DEVEL_PREFIX}/include
   LIBRARIES robust-equilibrium-lib
-)
-
-## robust-equilibrium-lib does not correctly install include & lib, so we have to do this manually
-add_custom_command(
-  TARGET robust-equilibrium-lib_lib POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/robust-equilibrium-lib-build/${CMAKE_SHARED_LIBRARY_PREFIX}robust-equilibrium-lib${CMAKE_SHARED_LIBRARY_SUFFIX} ${CATKIN_DEVEL_PREFIX}/lib
-)
-file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
-add_custom_command(
-  TARGET robust-equilibrium-lib_lib PRE_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_BINARY_DIR}/robust-equilibrium-lib-src/include ${CATKIN_DEVEL_PREFIX}/include
 )
 
 ## Install
