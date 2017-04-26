@@ -28,7 +28,7 @@ add_custom_command(
 )
 file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 add_custom_command(
-  TARGET robust-equilibrium-lib_lib PRE_LINK
+  TARGET robust-equilibrium-lib_lib PRE_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_BINARY_DIR}/robust-equilibrium-lib-src/include ${CATKIN_DEVEL_PREFIX}/include
 )
 
