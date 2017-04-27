@@ -17,6 +17,7 @@ ExternalProject_Add(
 )
 ## robust-equilibrium-lib does not correctly install include & lib, so we have to do this manually
 ExternalProject_Add_Step(robust-equilibrium-lib_lib copy_includes
+  DEPENDEES install
   COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_BINARY_DIR}/robust-equilibrium-lib-src/include ${CATKIN_DEVEL_PREFIX}/include
 )
 
