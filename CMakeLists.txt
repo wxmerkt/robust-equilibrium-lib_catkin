@@ -14,6 +14,7 @@ ExternalProject_Add(
   SOURCE_DIR ${CMAKE_CURRENT_BINARY_DIR}/robust-equilibrium-lib-src
   BUILD_COMMAND make
   INSTALL_COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/robust-equilibrium-lib-build/${CMAKE_SHARED_LIBRARY_PREFIX}robust-equilibrium-lib${CMAKE_SHARED_LIBRARY_SUFFIX} ${CATKIN_DEVEL_PREFIX}/lib
+  UPDATE_COMMAND ""
 )
 ## robust-equilibrium-lib does not correctly install include & lib, so we have to do this manually
 ExternalProject_Add_Step(robust-equilibrium-lib_lib copy_includes
